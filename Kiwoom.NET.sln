@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{128B36A5-31E0-4672-A24F-A67EF393F491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "WpfApp1\Test.csproj", "{128B36A5-31E0-4672-A24F-A67EF393F491}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAPI.NET", "OpenAPI.NET\OpenAPI.NET.csproj", "{173DE255-715F-4F49-9C2E-FEF2C2DDEC9F}"
 EndProject

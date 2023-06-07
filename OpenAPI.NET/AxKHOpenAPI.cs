@@ -54,16 +54,11 @@ public class AxKHOpenAPI
                             {
                                 Guid guidEvents = typeof(_DKHOpenAPIEvents).GUID;
 
-                                IConnectionPointContainer pConnectionPointContainer;
-
-                                pConnectionPointContainer = (IConnectionPointContainer)pUnknown;
-                                pConnectionPointContainer.FindConnectionPoint(ref guidEvents, out var _pConnectionPoint);
+                                ((IConnectionPointContainer)pUnknown).FindConnectionPoint(ref guidEvents, out _pConnectionPoint);
 
                                 if (_pConnectionPoint != null)
                                 {
-                                    var pEventSink = new AxKHOpenAPIEventMulticaster(this);
-
-                                    _pConnectionPoint.Advise(pEventSink, out _nCookie);
+                                    _pConnectionPoint.Advise(new AxKHOpenAPIEventMulticaster(this), out _nCookie);
 
                                     Created = true;
                                 }
@@ -594,14 +589,14 @@ public class AxKHOpenAPI
 
     const string x64 = "{0f3a0d96-1432-4d05-a1ac-220e202bb52c}";
     const string x86 = "{a1574a0d-6bfa-4bd7-9020-ded88711818d}";
+
     const int WS_VISIBLE = 0x10000000;
     const int WS_CHILD = 0x40000000;
 
-    int _nCookie = 0;
+    readonly int _nCookie = 0;
 
-    _DKHOpenAPI ocx;
+    readonly _DKHOpenAPI? ocx;
+    readonly IConnectionPoint? _pConnectionPoint;
 
-    IntPtr hWndContainer = IntPtr.Zero;
-
-    System.Runtime.InteropServices.ComTypes.IConnectionPoint _pConnectionPoint;
+    readonly IntPtr hWndContainer = IntPtr.Zero;
 }

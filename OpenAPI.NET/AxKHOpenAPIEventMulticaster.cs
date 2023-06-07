@@ -48,5 +48,5 @@ public class AxKHOpenAPIEventMulticaster : _DKHOpenAPIEvents
     {
         this.parent = parent;
     }
-    AxKHOpenAPI parent;
+    readonly AxKHOpenAPI parent;
 }
